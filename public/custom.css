@@ -1,0 +1,51 @@
+.panel-body {
+	font-size: 12px;
+}
+.panel-body .btn {
+	font-size: 12px;
+}
+.optimize-rule-row {
+	min-height: 20px;
+}
+.panel-body .optimize-rule-element {
+	width: 15%;
+	display: inline-block;
+	float: left;
+	margin-left: 2%;
+	height: 28px;
+	font-size: 12px;
+}
+
+.optimize-rule-element.optimize-rule-selector {
+	width: 48%;
+}
+
+.optimize-rule-element.optimize-rule-label {
+	width: 25%;
+}
+
+.optimize-rule-element.optimize-rule-value {
+	width: 20%;
+}
+
+.optimize-rule-element.optimize-rule-connector {
+	width: 20%;
+}
+.optimize-rule-row button {
+	width: 10%;
+}
+.form-btns {
+	text-align: right;
+	margin-right: 22%;
+}
+
+.form-btns button {
+	width: 20%;
+}
+.panel-body button.close-btn, .panel-body button.add-btn {
+	float: left;
+	width: 8%
+}
+.swal2-container button {
+	margin: 0 5px;
+}
