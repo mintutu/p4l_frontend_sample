@@ -28,7 +28,7 @@ sagasMiddle.run(loadAccounts)
 
 render(
   <Provider store={store}>
-    <OnOffRuleExecution />
+    <App />
   </Provider>,
   document.getElementById('root')
 )
