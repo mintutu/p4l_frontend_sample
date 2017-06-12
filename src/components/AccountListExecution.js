@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { accountReducer } from '../reducers/AccountList'
+import {selectAccountId} from '../actions/index'
 
 class AccountListExecution extends Component {
 
@@ -21,7 +22,8 @@ class AccountListExecution extends Component {
 
     handleChange(event) {
         this.setState({ value: event.target.value });
-        alert("You'll never have me! " + event.target.value);
+        this.props.selectAccount(event.target.value)
+        // alert("You'll never have me! " + event.target.value);
     }
 
     render() {
@@ -39,5 +41,9 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps)(AccountListExecution)
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({selectAccount: selectAccountId}, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AccountListExecution)
 

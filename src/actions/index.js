@@ -18,3 +18,11 @@ export function fetchAccounts(data) {
     payload: data
   }
 }
+
+export const selectAccountId = (accountId) => {
+  console.log("clicked");
+  return {
+    type: "ACCOUNT_SELECTED",
+    payload: accountId
+  }
+}
