@@ -7,6 +7,7 @@ import thunk from 'redux-thunk'
 import reducer from './reducers/AccountList'
 import { getAllAccounts } from './actions'
 import App from './containers/App'
+import OnOffRuleExecution from './containers/OnOffRuleExecution'
 import createSagaMiddleware from 'redux-saga'
 import {loadAccounts} from './sagas'
 
@@ -27,7 +28,7 @@ sagasMiddle.run(loadAccounts)
 
 render(
   <Provider store={store}>
-    <App />
+    <OnOffRuleExecution />
   </Provider>,
   document.getElementById('root')
 )

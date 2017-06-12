@@ -13,7 +13,7 @@ export default {
 const API_ENDPOINT = `http://localhost:9000/api/v1/accounts`;
 
 export function fetchAccounts() {
-  request({
+  return request({
     url: API_ENDPOINT,
     method: 'get'
   });  

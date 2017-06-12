@@ -51,6 +51,7 @@ export default class App extends Component {
                                                     <option>&lt;=</option>
                                                     <option>&gt;=</option>
                                                 </select>
+                                                <input className="form-control optimize-rule-element optimize-rule-value"/>
                                                 <button type="button" className="close close-btn optimize-rule-element">×</button>
                                             </div>
                                             <div className="form-group optimize-rule-row">
@@ -68,6 +69,7 @@ export default class App extends Component {
                                                     <option>&lt;=</option>
                                                     <option>&gt;=</option>
                                                 </select>
+                                                <input className="form-control optimize-rule-element optimize-rule-value"/>
                                                 <button type="button" className="close close-btn optimize-rule-element">×</button>
                                                 <button className="btn btn-info add-btn optimize-rule-element">+</button>
                                             </div>
@@ -89,9 +91,7 @@ export default class App extends Component {
                         </div>
                     </div>
                 </div>
-
-                <OnRule />
-                
+                <OnRule />                
             </div>
         )
     }
