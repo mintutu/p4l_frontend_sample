@@ -9,7 +9,7 @@ import { getAllAccounts } from './actions'
 import App from './containers/App'
 import OnOffRuleExecution from './containers/OnOffRuleExecution'
 import createSagaMiddleware from 'redux-saga'
-import {loadAccounts} from './sagas'
+import root from './sagas'
 
 const middleware = [ thunk ];
 if (process.env.NODE_ENV !== 'production') {
@@ -24,7 +24,7 @@ const store = createStore(
 
 // store.dispatch(getAllAccounts())
 
-sagasMiddle.run(loadAccounts)
+sagasMiddle.run(root)
 
 render(
   <Provider store={store}>

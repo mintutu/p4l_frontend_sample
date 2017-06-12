@@ -22,7 +22,11 @@ class AccountListExecution extends Component {
 
     handleChange(event) {
         this.setState({ value: event.target.value });
+        // this.props.selectAccount(event.target.value)
+
+        const dispatch  = this.props
         this.props.selectAccount(event.target.value)
+        // dispatch({type: 'ACCOUNT_SELECTED'})
         // alert("You'll never have me! " + event.target.value);
     }
 
@@ -44,6 +48,13 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({selectAccount: selectAccountId}, dispatch)
 }
+
+// function mapDispatchToProps(dispatch) {
+//   return {
+//     actions: bindActionCreators(selectAccountId, dispatch),
+//     dispatch
+//   };
+// }
 
 export default connect(mapStateToProps, mapDispatchToProps)(AccountListExecution)
 

@@ -19,7 +19,9 @@ export function fetchAccounts() {
   });  
 };
 
-export function fetchAccounts2() {
-    return fetch(`http://localhost:9000/api/v1/accounts` )
-            .then(response => response.json() )
-}
+export function fetchOffAds() {
+  return request({
+    url: "http://localhost:9000/api/v1/ads/off_ads_list",
+    method: 'get'
+  });  
+};

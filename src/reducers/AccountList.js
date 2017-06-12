@@ -10,6 +10,16 @@ const visibleIds = (state = [], action) => {
   }
 }
 
+const selectedAccount = (state = [], action) => {
+ switch (action.type) {
+    case "ACCOUNT_SELECTED":
+      return action.payload
+    default:
+      return state
+  }  
+}
+
 export default combineReducers({
-  accountReducer: visibleIds
+  accountReducer: visibleIds,
+  selectReducer: selectedAccount
 })
