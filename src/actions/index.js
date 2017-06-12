@@ -11,3 +11,10 @@ export const getAllAccounts = () => dispatch => {
     dispatch(receiveAccounts(accounts))
   })
 }
+
+export function fetchAccounts(data) {
+  return {
+    type: types.RECEIVE_PRODUCTS,
+    payload: data
+  }
+}

@@ -8,7 +8,7 @@ class AccountList extends Component {
     createListItems() {
         return this.props.accounts.map(account => {
             return (
-                <option key={account.id}>{account.id}</option>
+                <option key={account.accountId}>{account.accountId}</option>
             )
         })
     }
