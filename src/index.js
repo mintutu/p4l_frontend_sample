@@ -6,7 +6,7 @@ import { createLogger } from 'redux-logger'
 import thunk from 'redux-thunk'
 import reducer from './reducers'
 import { getAllAccounts } from './actions'
-import App from './containers/App'
+import Home from './containers/Home'
 import OnOffRuleExecution from './containers/OnOffRuleExecution'
 import createSagaMiddleware from 'redux-saga'
 import root from './sagas'
@@ -28,7 +28,7 @@ sagasMiddle.run(root)
 
 render(
   <Provider store={store}>
-    <App />
+    <Home />
   </Provider>,
   document.getElementById('root')
 )
