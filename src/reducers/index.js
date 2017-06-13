@@ -1,3 +1,9 @@
-/**
- * Created by long_tv on 6/13/17.
- */
+import { combineReducers } from 'redux'
+
+import filterOffRules from './OffRuleList'
+import receiveAccounts from './AccountList'
+
+export default combineReducers({
+    filterOffRules,
+    receiveAccounts
+})

@@ -6,18 +6,14 @@ import request from './request';
 
 const TIMEOUT = 100
 
-export default {
-  getAccounts: (cb, timeout) => setTimeout(() => cb(_accounts), timeout || TIMEOUT),
-}
+const API_GET_ACCOUNTS_ENDPOINT = 'http://localhost:8080/api/v1/accounts'
 
-const API_ENDPOINT = `http://localhost:9000/api/v1/accounts`;
-
-export function fetchAccounts() {
+export function getAccounts() {
   return request({
-    url: API_ENDPOINT,
+    url: API_GET_ACCOUNTS_ENDPOINT,
     method: 'get'
-  });  
-};
+  })
+}
 
 export function fetchOffAds() {
   return request({

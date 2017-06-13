@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux'
-import { RECEIVE_PRODUCTS, ADD_TO_CART } from '../constants/ActionTypes'
+import { RECEIVE_ACCOUNTS } from '../constants/ActionTypes'
 
-const visibleIds = (state = [], action) => {
+const receiveAccounts = (state = [], action) => {
   switch (action.type) {
-    case RECEIVE_PRODUCTS:
-      return action.payload.accountList
+    case RECEIVE_ACCOUNTS:
+        return action.payload.accountList
     default:
       return state
   }
@@ -19,7 +19,4 @@ const selectedAccount = (state = [], action) => {
   }  
 }
 
-export default combineReducers({
-  accountReducer: visibleIds,
-  selectReducer: selectedAccount
-})
+export default receiveAccounts

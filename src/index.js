@@ -4,7 +4,7 @@ import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import { createLogger } from 'redux-logger'
 import thunk from 'redux-thunk'
-import reducer from './reducers/AccountList'
+import reducer from './reducers'
 import { getAllAccounts } from './actions'
 import App from './containers/App'
 import OnOffRuleExecution from './containers/OnOffRuleExecution'
@@ -28,7 +28,7 @@ sagasMiddle.run(root)
 
 render(
   <Provider store={store}>
-    <OnOffRuleExecution />
+    <App />
   </Provider>,
   document.getElementById('root')
 )

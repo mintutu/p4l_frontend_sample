@@ -1,18 +1,16 @@
 import { call, put, takeEvery, take, takeLatest, fork } from 'redux-saga/effects'
-import {fetchAccounts, fetchOffAds} from '../api/AccountListAPI';
-import {delay} from "redux-saga";
-import * as actions from "../actions";
+import {getAccounts, fetchOffAds} from '../api/AccountListAPI'
+import {delay} from "redux-saga"
+import * as actions from "../actions"
 
 const DELAY_REQUEST = 0;
 
 function* loadAccounts() {
   try {
-    const accounts = yield call(fetchAccounts);
-    console.log(accounts)
+    const accounts = yield call(getAccounts);
     yield put(actions.fetchAccounts(accounts));
   } catch (error) {
-    console.log(error)
-    yield put({type: 'LOAD_IMAGES_FAILURE', error})
+    yield put({type: 'LOAD_ACCOUNTS_FAILURE', error})
   }
 }
 
