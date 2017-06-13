@@ -21,10 +21,9 @@ export function fetchOffAds(data) {
   }  
 }
 
-export const selectAccountId = (accountId) => {
-  console.log("clicked");
+export const selectAccountId = (accountId) => {  
   return {
-    type: "ACCOUNT_SELECTED",
+    type: types.ACCOUNT_SELECTED_EXECUTION,
     accountId: accountId
   }
 }
@@ -34,4 +33,18 @@ export const selectOnRuleDetail = (rule) => {
         type: types.SHOW_ON_RULE_DETAIL_SETTING,
         rule: rule
     }
+}
+
+export const getExecutionResult = (result) => {
+    return {
+        type: types.GET_EXECUTION_RESULT,
+        result: result
+    }  
+}
+
+export const executionOnOffRules = (accountId) => {
+    return {
+    type: types.EXECUTE_ON_OFF_RULES,
+    accountId: accountId
+  }  
 }

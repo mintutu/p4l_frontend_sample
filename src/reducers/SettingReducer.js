@@ -15,7 +15,7 @@ function ruleSetting(state = DEFAULT_STATE, action) {
     if (!action) return DEFAULT_STATE
     switch (action.type) {
         case RECEIVE_ACCOUNTS_SETTING:
-            return state.setIn(['offRuleList'], action.payload.accountList.filter(rule => rule.offRuleExpression != ''))
+            return state.setIn(['offRuleList'], action.payload.accountList.filter(rule => rule.offRuleExpression !== ''))
                 .setIn(['accountList'], action.payload.accountList)
         case SHOW_ON_RULE_DETAIL_SETTING:
             return state.setIn(['onRuleListDetail'], action.rule)

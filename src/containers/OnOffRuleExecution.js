@@ -3,6 +3,8 @@ import AccountListExecution from '../components/execution/AccountListExecution'
 import OffRuleExpExecution from '../components/execution/OffRuleExpExecution'
 import OffRuleTimeRangeExecution from '../components/execution/OffRuleTimeRangeExecution'
 import OffAdsListExecution from '../components/execution/OffAdsListExecution'
+import ButtonExecution from '../components/execution/ButtonExecution'
+import ResultExecution from '../components/execution/ResultExecution'
                                             
 export default class OnOffRuleExecution extends Component {
 
@@ -16,6 +18,8 @@ export default class OnOffRuleExecution extends Component {
                         <h4 className="page-header">OFFON実行</h4>
                     </div>
                 </div>
+
+                <ResultExecution />
 
                 <div className="row">
                     <div className="col-lg-12">
@@ -47,7 +51,7 @@ export default class OnOffRuleExecution extends Component {
                 </div>
 
                 <div className="row" style={{float: "right", "padding-right": "15px", "padding-bottom": "15px"}} >
-                    <button className="btn btn-primary" id="executeBtn">実行</button>
+                    <ButtonExecution />
                 </div>
 
 

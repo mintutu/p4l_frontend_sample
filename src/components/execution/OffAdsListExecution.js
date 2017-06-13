@@ -23,7 +23,6 @@ class OffAdsListExecution extends Component {
     }
 
     render() {
-        console.log(this.props.offAdList)
         return (
             <tbody>{this.createRows()}</tbody>
         )

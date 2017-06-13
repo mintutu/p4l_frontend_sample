@@ -5,7 +5,6 @@ import * as reducers from '../../reducers'
 class OffRuleExpExecution extends Component {
 
     render() {
-        console.log(this.props.offRule)
         return (
             <span><strong>{this.props.offRule}</strong></span>
         )

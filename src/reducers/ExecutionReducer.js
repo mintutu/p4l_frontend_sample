@@ -1,4 +1,4 @@
-import { RECEIVE_ACCOUNTS_EXECUTION, ACCOUNT_SELECTED, FETCH_OFF_ADS } from '../constants/ActionTypes'
+import * as types from "../constants/ActionTypes";
 import Immutable from 'seamless-immutable'
 
 const DEFAULT_STATE = Immutable({
@@ -7,20 +7,29 @@ const DEFAULT_STATE = Immutable({
     ruleOffExpression: '',
     timeRangeType: 0,
     offAdList: [],
-    offRuleList: []
+    offRuleList: [],
+    isSelected: false,
+    executionResult: null,
+    executedAccounts: []
 })
 
 function execution(state = DEFAULT_STATE, action) {
     if (!action) return DEFAULT_STATE
     switch (action.type) {
-        case RECEIVE_ACCOUNTS_EXECUTION:
+        case types.RECEIVE_ACCOUNTS_EXECUTION:
             return state.setIn(['accountList'], action.payload.accountList)
-        case ACCOUNT_SELECTED:
+        case types.ACCOUNT_SELECTED_EXECUTION:
             return state.setIn(['accountId'], action.accountId)
-        case FETCH_OFF_ADS:
+                        .setIn(['isSelected'], true)
+                        .setIn(['executionResult'], null)
+        case types.FETCH_OFF_ADS:
             return state.setIn(['ruleOffExpression'], action.payload.ruleOffExpression)
                 .setIn(['timeRangeType'], action.payload.timeRangeType)
                 .setIn(['offAdList'], action.payload.offAdList)
+        case types.GET_EXECUTION_RESULT:
+            return state.setIn(['executionResult'], action.result)
+        case types.EXECUTE_ON_OFF_RULES:
+            return state.setIn(['executedAccounts'], [...state.executedAccounts, action.accountId])
         default:
             return state
 

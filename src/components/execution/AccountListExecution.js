@@ -13,13 +13,13 @@ class AccountListExecution extends Component {
     }
 
     createListItems() {        
-        if (this.props.accounts.length != 0 ) {
-            const firstAccountId = this.props.accounts[0].accountId
+        if (this.props.accounts.length !== 0 && !this.props.isSelected) {
+            const firstAccountId = this.props.accounts[0].accountId.toString()
             this.props.selectAccount(firstAccountId)
         }        
         return this.props.accounts.filter((e,i) => e.offRuleExpression != "").map(account => {
             return (
-                <option key={account.accountId}>{account.accountId}</option>
+                <option key={account.accountId} value={account.accountId}>{'[' + account.accountId + '] ' + account.accountName}</option>
             )
         })
     }
@@ -40,7 +40,8 @@ class AccountListExecution extends Component {
 
 function mapStateToProps(state) {
     return {
-        accounts: state.executionReducer.accountList
+        accounts: state.executionReducer.accountList,
+        isSelected: state.executionReducer.isSelected
     }
 }
 
