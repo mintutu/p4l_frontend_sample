@@ -1,4 +1,4 @@
-import { RECEIVE_ACCOUNTS_SETTING } from '../constants/ActionTypes'
+import { RECEIVE_ACCOUNTS_SETTING, SHOW_ON_RULE_DETAIL_SETTING } from '../constants/ActionTypes'
 import Immutable from 'seamless-immutable'
 
 const DEFAULT_STATE = Immutable({
@@ -7,7 +7,8 @@ const DEFAULT_STATE = Immutable({
     ruleOffExpression: '',
     timeRangeType: 0,
     offAdList: [],
-    offRuleList: []
+    offRuleList: [],
+    onRuleListDetail: []
 })
 
 function ruleSetting(state = DEFAULT_STATE, action) {
@@ -15,6 +16,9 @@ function ruleSetting(state = DEFAULT_STATE, action) {
     switch (action.type) {
         case RECEIVE_ACCOUNTS_SETTING:
             return state.setIn(['offRuleList'], action.payload.accountList.filter(rule => rule.offRuleExpression != ''))
+                .setIn(['accountList'], action.payload.accountList)
+        case SHOW_ON_RULE_DETAIL_SETTING:
+            return state.setIn(['onRuleListDetail'], action.rule)
         default:
             return state
 

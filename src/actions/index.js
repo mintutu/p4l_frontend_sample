@@ -28,3 +28,10 @@ export const selectAccountId = (accountId) => {
     accountId: accountId
   }
 }
+
+export const selectOnRuleDetail = (rule) => {
+    return {
+        type: types.SHOW_ON_RULE_DETAIL_SETTING,
+        rule: rule
+    }
+}

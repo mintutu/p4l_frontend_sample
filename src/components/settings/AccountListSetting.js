@@ -28,5 +28,5 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps)(AccountList)
+export default connect(mapStateToProps)(AccountListSetting)
 
