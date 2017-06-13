@@ -19,11 +19,11 @@ function* loadAccounts() {
 function* loadOffAds() {
   while(true) {
     try {
-      var { payload } = yield take('ACCOUNT_SELECTED');
-      console.log(payload)
-      const accounts = yield call(fetchOffAds);
+      var { accountId } = yield take('ACCOUNT_SELECTED');
+      console.log(accountId)
+      const accounts = yield call(fetchOffAds, accountId);
       console.log(accounts)
-      // yield put(actions.auth.loginSuccess(user));
+      yield put(actions.fetchOffAds(accounts));
     } catch(e) {
       // yield put(actions.auth.loginError(e.error));
     }

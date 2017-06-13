@@ -19,10 +19,17 @@ export function fetchAccounts(data) {
   }
 }
 
+export function fetchOffAds(data) {
+  return {
+    type: types.FETCH_OFF_ADS,
+    payload: data
+  }  
+}
+
 export const selectAccountId = (accountId) => {
   console.log("clicked");
   return {
     type: "ACCOUNT_SELECTED",
-    payload: accountId
+    accountId: accountId
   }
 }

@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import { RECEIVE_PRODUCTS, ADD_TO_CART } from '../constants/ActionTypes'
+import { RECEIVE_PRODUCTS, ACCOUNT_SELECTED, FETCH_OFF_ADS } from '../constants/ActionTypes'
 
 const visibleIds = (state = [], action) => {
   switch (action.type) {
@@ -12,8 +12,35 @@ const visibleIds = (state = [], action) => {
 
 const selectedAccount = (state = [], action) => {
  switch (action.type) {
-    case "ACCOUNT_SELECTED":
-      return action.payload
+    case ACCOUNT_SELECTED:
+      return action.accountId
+    default:
+      return state
+  }  
+}
+
+const getOffRuleExpression = (state = [], action) => {
+ switch (action.type) {
+    case FETCH_OFF_ADS:
+      return action.payload.ruleOffExpression
+    default:
+      return state
+  }  
+}
+
+const getTimeRange = (state = [], action) => {
+ switch (action.type) {
+    case FETCH_OFF_ADS:
+      return action.payload.timeRangeType
+    default:
+      return state
+  }  
+}
+
+const getOffAdsList = (state = [], action) => {
+ switch (action.type) {
+    case FETCH_OFF_ADS:
+      return action.payload.offAdList
     default:
       return state
   }  
@@ -21,5 +48,8 @@ const selectedAccount = (state = [], action) => {
 
 export default combineReducers({
   accountReducer: visibleIds,
-  selectReducer: selectedAccount
+  selectReducer: selectedAccount,
+  getOffRuleExpReducer: getOffRuleExpression,
+  getTimeRangeReducer : getTimeRange,
+  getOffAdsListReducer: getOffAdsList
 })

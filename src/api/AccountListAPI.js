@@ -19,9 +19,9 @@ export function fetchAccounts() {
   });  
 };
 
-export function fetchOffAds() {
+export function fetchOffAds(accountId) {
   return request({
-    url: "http://localhost:9000/api/v1/ads/off_ads_list",
+    url: "http://localhost:9000/api/v1/ads/off_ads_list?accountId="+accountId,
     method: 'get'
   });  
 };
