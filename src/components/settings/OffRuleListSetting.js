@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { filterOffRules } from '../reducers/OffRuleList'
+import * as reducers from '../../reducers'
 
 class OffRuleList extends Component {
     createListItems() {
@@ -10,7 +10,7 @@ class OffRuleList extends Component {
                 <tr key={rule.accountId}>
                     <td>{rule.accountId}</td>
                     <td>{rule.offRuleExpression}</td>
-                    <td><button className="btn btn-default" data-toggle="modal" data-target="#onRulesDetailModal">参照</button></td>
+                    <td><button className="btn btn-default">参照</button></td>
                     <td>{rule.timeRangeType}</td>
                     <td><button className="btn btn-default"><i className="fa fa-edit"></i></button> &nbsp; <button className="btn btn-default btn-delete"><i className="fa fa-trash-o"></i></button></td>
                 </tr>
@@ -44,7 +44,7 @@ class OffRuleList extends Component {
 
 function mapStateToProps(state) {
     return {
-        rules: state.filterOffRules
+        rules: state.settingReducer.offRuleList
     }
 }
 

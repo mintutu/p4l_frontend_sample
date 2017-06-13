@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { receiveAccounts } from '../reducers/AccountList'
+import * as reducers from '../../reducers'
 
 class AccountList extends Component {
 
@@ -24,7 +24,7 @@ class AccountList extends Component {
 
 function mapStateToProps(state) {
     return {
-        accounts: state.receiveAccounts
+        accounts: state.settingReducer.accountList
     }
 }
 

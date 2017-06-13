@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux'
 
-import filterOffRules from './OffRuleList'
-import receiveAccounts from './AccountList'
+import execution from './ExecutionReducer'
+import ruleSetting from './SettingReducer'
 
 export default combineReducers({
-    filterOffRules,
-    receiveAccounts
+    executionReducer: execution,
+    settingReducer: ruleSetting,
 })

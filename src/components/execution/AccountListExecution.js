@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { accountReducer } from '../reducers/AccountList'
-import {selectAccountId} from '../actions/index'
+import * as reducers from '../../reducers'
+import {selectAccountId} from '../../actions/index'
 
 class AccountListExecution extends Component {
 
@@ -12,8 +12,12 @@ class AccountListExecution extends Component {
         this.handleChange = this.handleChange.bind(this);
     }
 
-    createListItems() {
-        return this.props.accounts.map(account => {
+    createListItems() {        
+        if (this.props.accounts.length != 0 ) {
+            const firstAccountId = this.props.accounts[0].accountId
+            this.props.selectAccount(firstAccountId)
+        }        
+        return this.props.accounts.filter((e,i) => e.offRuleExpression != "").map(account => {
             return (
                 <option key={account.accountId}>{account.accountId}</option>
             )
@@ -22,12 +26,7 @@ class AccountListExecution extends Component {
 
     handleChange(event) {
         this.setState({ value: event.target.value });
-        // this.props.selectAccount(event.target.value)
-
-        const dispatch  = this.props
         this.props.selectAccount(event.target.value)
-        // dispatch({type: 'ACCOUNT_SELECTED'})
-        // alert("You'll never have me! " + event.target.value);
     }
 
     render() {
@@ -41,20 +40,13 @@ class AccountListExecution extends Component {
 
 function mapStateToProps(state) {
     return {
-        accounts: state.accountReducer
+        accounts: state.executionReducer.accountList
     }
 }
 
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({selectAccount: selectAccountId}, dispatch)
 }
-
-// function mapDispatchToProps(dispatch) {
-//   return {
-//     actions: bindActionCreators(selectAccountId, dispatch),
-//     dispatch
-//   };
-// }
 
 export default connect(mapStateToProps, mapDispatchToProps)(AccountListExecution)
 

@@ -1,6 +1,9 @@
 import React, { Component } from "react"
-import AccountListExecution from '../components/AccountListExecution'
-
+import AccountListExecution from '../components/execution/AccountListExecution'
+import OffRuleExpExecution from '../components/execution/OffRuleExpExecution'
+import OffRuleTimeRangeExecution from '../components/execution/OffRuleTimeRangeExecution'
+import OffAdsListExecution from '../components/execution/OffAdsListExecution'
+                                            
 export default class OnOffRuleExecution extends Component {
 
     render() {
@@ -12,11 +15,6 @@ export default class OnOffRuleExecution extends Component {
                     <div className="col-lg-12">
                         <h4 className="page-header">OFFON実行</h4>
                     </div>
-                </div>
-
-                <div className="alert alert-success" id="success-alert">
-                    <button type="button" className="close" data-dismiss="alert">x</button>
-                    OFFONロジックが正常に実行された。
                 </div>
 
                 <div className="row">
@@ -34,11 +32,11 @@ export default class OnOffRuleExecution extends Component {
                                     <div className="col-sm-6">
                                         <div className="form-group optimize-rule-row">
                                             <span className="optimize-rule-element optimize-rule-label">参照期間</span>
-                                            <span><strong>昨日</strong></span>
+                                            <OffRuleTimeRangeExecution />
                                         </div>
                                         <div className="form-group optimize-rule-row">
                                             <span className="optimize-rule-element optimize-rule-label">OFFロジック</span>
-                                            <span><strong>imp>=100 AND cost>=1000 OR cpa>=100 AND cpc>=200</strong></span>
+                                            <OffRuleExpExecution />
                                         </div>
                                     </div>
                                 </div>
@@ -48,7 +46,7 @@ export default class OnOffRuleExecution extends Component {
                     </div>
                 </div>
 
-                <div className="row" >
+                <div className="row" style={{float: "right", "padding-right": "15px", "padding-bottom": "15px"}} >
                     <button className="btn btn-primary" id="executeBtn">実行</button>
                 </div>
 
@@ -74,35 +72,7 @@ export default class OnOffRuleExecution extends Component {
                                                 <th>cpc</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>1</td>
-                                                <td>昨日</td>
-                                                <td>100</td>
-                                                <td>10</td>
-                                                <td>10</td>
-                                                <td>10</td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>2</td>
-                                                <td>昨日</td>
-                                                <td>100</td>
-                                                <td>10</td>
-                                                <td>10</td>
-                                                <td>10</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>3</td>
-                                                <td>昨日</td>
-                                                <td>100</td>
-                                                <td>10</td>
-                                                <td>10</td>
-                                                <td>10</td>
-                                            </tr>
-                                        </tbody>
+                                        <OffAdsListExecution />
                                     </table>
                                 </div>
                             </div>

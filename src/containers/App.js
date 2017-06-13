@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import AccountList from '../components/AccountList'
-import OffRuleList from '../components/OffRuleList'
-import OnRule from '../components/OnRule'
+import AccountList from '../components/settings/AccountListSetting'
+import OffRuleList from '../components/settings/OffRuleListSetting'
 
 
 export default class App extends Component {
@@ -93,7 +92,7 @@ export default class App extends Component {
                     </div>
                 </div>
                 <OffRuleList/>
-                <OnRule />                
+
             </div>
         )
     }
