@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import * as reducers from '../../reducers'
 
-class OffRuleList extends Component {
+class OffRuleListSetting extends Component {
     createListItems() {
         return this.props.rules.map(rule => {
             return (

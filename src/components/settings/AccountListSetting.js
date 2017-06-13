@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as reducers from '../../reducers'
 
-class AccountList extends Component {
+class AccountListSetting extends Component {
 
     createListItems() {
         return this.props.accounts.map(account => {
