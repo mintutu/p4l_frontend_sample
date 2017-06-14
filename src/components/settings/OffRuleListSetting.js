@@ -14,7 +14,7 @@ class OffRuleListSetting extends Component {
             return (
                 <tr key={rule.accountId}>
                     <td>{rule.accountId}</td>
-                    <td>{rule.offRuleExpression}</td>
+                    <td>{commons.formatOffRule(rule.offRuleExpression)}</td>
                     <td><button className="btn btn-default" data-toggle="modal" data-target="#onRuleDetailModal" onClick={this.showOnRuleDetail.bind(this, rule)}>参照</button></td>
                     <td>{commons.getTimeRange(rule.timeRangeType)}</td>
                     <td><button className="btn btn-default"><i className="fa fa-edit"></i></button> &nbsp; <button className="btn btn-default btn-delete"><i className="fa fa-trash-o"></i></button></td>
