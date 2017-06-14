@@ -23,7 +23,7 @@ export function fetchOffAds(accountId) {
 
 export function executeOnOffRule(accountId) {
   return request({
-    url: "http://localhost:9000/api/v1/accounts/execute_rule_settings",
+    url: "http://localhost:9000/api/v1/ads/execute_rules",
     method: 'post',
     body: {
       accountId: accountId

@@ -32,7 +32,7 @@ function* executeOnOffRules() {
   while(true) {
     try {
       var { accountId } = yield take(types.EXECUTE_ON_OFF_RULES);
-      const result = yield call(executeOnOffRule, accountId);
+      const result = yield call(executeOnOffRule, parseFloat(accountId));
       yield put(actions.getExecutionResult(result));
       localStorage.setItem(accountId, 'executed');
     } catch(error) {
