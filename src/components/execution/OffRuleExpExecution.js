@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as reducers from '../../reducers'
+import * as commons from '../../shared/commons'
 
 class OffRuleExpExecution extends Component {
 
     render() {
         return (
-            <span><strong>{this.props.offRule}</strong></span>
+            <span><strong>{commons.formatOffRule(this.props.offRule)}</strong></span>
         )
     }    
 }

@@ -6,3 +6,7 @@ export const getTimeRange = (timeRangeType) => {
         default : return ""
     }
 }
+
+export const formatOffRule = (offRule) => {
+    return offRule.replace('&&', 'AND').replace('||', 'OR')
+}
