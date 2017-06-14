@@ -1,7 +1,6 @@
 /**
  * Mocking client-server processing
  */
-import _accounts from './accounts.json'
 import request from './request';
 
 const TIMEOUT = 100
